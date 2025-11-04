@@ -1,4 +1,4 @@
-import type { Movie } from "../types";
+import type { Booking, DashboardData, Movie } from "../types";
 
 export const dummyTrailers = [
   {
@@ -294,10 +294,10 @@ export const dummyDateTimeData = {
   ],
 };
 
-export const dummyDashboardData = {
+export const dummyDashboardData: DashboardData = {
   totalBookings: 14,
   totalRevenue: 1517,
-  totalUser: 5,
+  totalUsers: 5,
   activeShows: [
     {
       _id: "68352363e96d99513e4221a4",
@@ -364,7 +364,7 @@ export const dummyDashboardData = {
   ],
 };
 
-export const dummyBookingData = [
+export const dummyBookingData: Booking[] = [
   {
     _id: "68396334fb83252d82e17295",
     user: { name: "GreatStack" },

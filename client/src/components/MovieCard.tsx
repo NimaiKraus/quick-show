@@ -2,6 +2,7 @@ import React from 'react'
 import type { Movie } from '../types'
 import { useNavigate } from 'react-router-dom'
 import { StarIcon } from 'lucide-react';
+import { getHoursAndMinutes } from '../lib/utils';
 
 const MovieCard = ({ movie }: { movie: Movie }) => {
     const navigate = useNavigate();
@@ -22,11 +23,11 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
             <p className="mt-2 font-semibold truncate">{movie.title}</p>
 
             <p className="text-sm text-gray-400 mt-2">
-                {new Date(movie.release_date).getFullYear()} • {movie.genres.slice(0, 2).map(genre => genre.name).join(' | ')} • {movie.runtime}
+                {new Date(movie.release_date).getFullYear()} • {movie.genres.slice(0, 2).map(genre => genre.name).join(' | ')} • {getHoursAndMinutes(movie.runtime)}
             </p>
 
             <div className="flex items-center justify-between mt-4 pb-3">
-                <button className="px-4 py-2 text-xs bg-primary hover:bg-primary-dull transition rounded-full">
+                <button className="px-4 py-2 text-xs bg-primary hover:bg-primary-dull transition rounded-full" onClick={goToMovieDetails}>
                     Buy Tickets
                 </button>
 
